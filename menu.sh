@@ -4,7 +4,7 @@ cd
 clear
 echo ""
 echo -e "==================================================================="
-echo -e "                  MENU UTAMA | MENU SCRIPT NS-SSH                  "
+echo -e "                  MENU UTAMA NS-SSH                  "
 echo -e "==================================================================="
 echo -e "\033[1;31m 1\033[0m) Membuat akaun pelanggan              | \033[1;32mCreate user account\033[0m"
 echo -e "\033[1;31m 2\033[0m) Membuat akaun percubaan              | \033[1;32mCreate trial account\033[0m"
@@ -20,6 +20,8 @@ echo -e "\033[1;31m11\033[0m) Sekat akaun pelanggan                | \033[1;32mB
 echo -e "\033[1;31m12\033[0m) Buka sekatan akaun pelanggan         | \033[1;32mUnblock user account\033[0m"
 echo -e "\033[1;31m13\033[0m) Senarai akaun yang sedang login      | \033[1;32mUser active list\033[0m"
 echo -e "\033[1;31m14\033[0m) Set limit login Dropbear             | \033[1;32mKill multilogin\033[0m"
+echo -e "\033[1;31m14\033[0m) Set limit 1 login SSH                | \033[1;32mKill multilogin ssh 1\033[0m"
+echo -e "\033[1;31m14\033[0m) Set limit 2 login SSH                | \033[1;32mKill multilogin ssh 2\033[0m"
 echo -e "\033[1;31m15\033[0m) Jumlah RAM yang sedang digunakan     | \033[1;32mTotal used RAM\033[0m"
 echo -e "\033[1;31m16\033[0m) Restart semua servis                 | \033[1;32mRestart all service\033[0m"
 echo -e "\033[1;31m17\033[0m) Speedtest VPS                        | \033[1;32mSpeedtest --share\033[0m"
@@ -27,9 +29,7 @@ echo -e "\033[1;31m18\033[0m) Benchmark                            | \033[1;32mB
 echo -e "\033[1;31m19\033[0m) Maklumat Sistem VPS                  | \033[1;32mVPS system info\033[0m"
 echo -e "\033[1;31m20\033[0m) Info script auto install             | \033[1;32mAuto install script info\033[0m"
 echo -e "\033[1;31m21\033[0m) Reboot server                        | \033[1;32mReboot server\033[0m"
-echo -e "==================================================================="
-echo -e "                         SCRIPT BY NS | NS-SSH                     "
-echo -e "==================================================================="
+echo "==================================================================="
 echo -e ""
 echo -e "Sila masukkan nombor pilihan anda"
 
