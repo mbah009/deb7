@@ -1,7 +1,7 @@
 #
 #!/bin/bash
 #Script senarai user yang sudah expire akaunSSH
-#Script by syahz86
+#
 #
 echo "" > /root/infouser.txt
 echo "" > /root/expireduser.txt
@@ -41,12 +41,10 @@ done
 cd
 clear
 echo "==================================================================="
-echo -e "       SENARAI AKAUN YANG SUDAH EXPIRE | MENU SCRIPT BY NS      "
+echo -e "       SENARAI AKAUN YANG SUDAH EXPIRE    "
 echo "==================================================================="
 echo -e ""
 cat /root/expireduser.txt
 echo -e ""
-echo "==================================================================="
-echo -e "                         SCRIPT BY NS | NS-SSH                  "
 echo "==================================================================="
 echo -e ""

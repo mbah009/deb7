@@ -1,12 +1,12 @@
 #
 #!/bin/bash
 #Script disable akaun yang sudah expire
-#Script by syahz86
+#
 #
 cd
 clear
 echo "==================================================================="
-echo -e "     SEKAT AKAUN YANG SUDAH EXPIRE | MENU SCRIPT BY NS          "
+echo -e "     SEKAT AKAUN YANG SUDAH EXPIRE         "
 echo "==================================================================="
 echo -e ""
 echo "" > /root/infouser.txt

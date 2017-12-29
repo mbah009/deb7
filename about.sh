@@ -1,7 +1,7 @@
 #
 #!/bin/bash
 #Maklumat Script
-#Script by syahz86
+#
 #
 
 export DEBIAN_FRONTEND=noninteractive
@@ -10,7 +10,7 @@ MYIP=$(wget -qO- ipv4.icanhazip.com);
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 clear
 echo "==================================================================="
-echo -e "             MAKLUMAT SCRIPT | MENU SCRIPT NS-SSH               "
+echo -e "             MAKLUMAT SCRIPT             "
 echo "==================================================================="
 echo ""
 echo -e "Untuk sistem Debian 7 32 bit & 64 bit sahaja"
@@ -27,7 +27,5 @@ echo -e "7) MRTG | http://$MYIP/mrtg/"
 echo -e "8) Fail2ban [on]"
 echo -e "9) Anti DDoS [on]"
 echo ""
-echo "==================================================================="
-echo -e "                         SCRIPT BY NS | NS-SSH                  "
 echo "==================================================================="
 echo ""

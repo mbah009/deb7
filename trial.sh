@@ -1,7 +1,7 @@
 #
 #!/bin/bash
 #Script create akaun trial
-#Script by syahz86
+#
 #
 export DEBIAN_FRONTEND=noninteractive
 OS=`uname -m`;
@@ -28,7 +28,5 @@ echo -e "Port Squid: 8080"
 echo -e "Config OpenVPN (TCP 1194): http://$MYIP:81/client.ovpn"
 echo -e "Username: $Login"
 echo -e "Password: $Pass\n"
-echo "==================================================================="
-echo -e "                         SCRIPT BY NS | NS-SSH                  "
 echo "==================================================================="
 echo ""

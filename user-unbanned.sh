@@ -1,12 +1,12 @@
 #
 #!/bin/bash
 #Script block akaun SSH
-#Script by syahz86
+#
 #
 cd
 clear
 echo "==================================================================="
-echo -e "       BUKA SEKATAN AKAUN PELANGGAN | MENU SCRIPT BY NS         "
+echo -e "       BUKA SEKATAN AKAUN PELANGGAN         "
 echo "==================================================================="
 echo ""
 echo "" > /root/banneduser.txt
@@ -28,8 +28,6 @@ if [ $? -eq 0 ]; then
 else
 	echo "Username [$username] belum didaftarkan lagi!"
   echo -e ""
-echo "==================================================================="
-echo -e "                         SCRIPT BY NS | NS-SSH                  "
 echo "==================================================================="
 echo -e ""
 

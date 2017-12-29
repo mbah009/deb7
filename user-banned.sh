@@ -1,12 +1,12 @@
 #
 #!/bin/bash
 #Script block akaun SSH
-#Script by syahz86
+#
 #
 cd
 clear
 echo "==================================================================="
-echo -e "          SEKAT AKAUN PELANGGAN | MENU SCRIPT BY NS             "
+echo -e "          SEKAT AKAUN PELANGGAN          "
 echo "==================================================================="
 echo ""
 
@@ -46,8 +46,6 @@ if [ $? -eq 0 ]; then
 else
 	echo "Username [$username] belum terdaftar!"
 	echo -e ""
-echo "==================================================================="
-echo -e "                         SCRIPT BY NS | NS-SSH                  "
 echo "==================================================================="
 echo -e ""
 

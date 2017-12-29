@@ -1,7 +1,7 @@
 #
 #!/bin/bash
 #Script generate akaun
-#Script by syahz86
+#
 #
 export DEBIAN_FRONTEND=noninteractive
 OS=`uname -m`;
@@ -10,7 +10,7 @@ MYIP2="s/xxxxxxxxx/$MYIP/g";
 cd
 clear
 echo "==================================================================="
-echo -e "         GENERATE AKAUN PELANGGAN | MENU SCRIPT BY NS           "
+echo -e "         GENERATE AKAUN PELANGGAN           "
 echo "==================================================================="
 echo -e ""
 read -p "Berapa jumlah akaun yang akan dibuat: " JUMLAH
@@ -38,7 +38,5 @@ done
 
 echo "Aktif sehingga: $(date -d "$AKTIF days" +"%d-%m-%Y")"
 echo -e ""
-echo "==================================================================="
-echo -e "                         SCRIPT BY NS | NS-SSH                  "
 echo "==================================================================="
 echo -e ""

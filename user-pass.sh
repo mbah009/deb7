@@ -1,7 +1,7 @@
 #
 #!/bin/bash
 #Script tukar password akaun SSH
-#Script by syahz86
+#
 #
 export DEBIAN_FRONTEND=noninteractive
 OS=`uname -m`;
@@ -10,7 +10,7 @@ MYIP2="s/xxxxxxxxx/$MYIP/g";
 cd
 clear
 echo "==================================================================="
-echo -e "        TUKAR PASSWORD PELANGGAN | MENU SCRIPT BY NS            "
+echo -e "        TUKAR PASSWORD PELANGGAN            "
 echo "==================================================================="
 echo -e ""
 # begin of user-list
@@ -61,8 +61,6 @@ if [ $? -eq 0 ]; then
 else
 	echo "Username [$username] belum didaftarkan lagi!"
   echo -e ""
-echo "==================================================================="
-echo -e "                         SCRIPT BY NS | NS-SSH                  "
 echo "==================================================================="
 echo -e ""
 	exit 1

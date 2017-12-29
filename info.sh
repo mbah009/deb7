@@ -17,7 +17,7 @@
 cd
 clear
 echo "==================================================================="
-echo -e "              MAKLUMAT SISTEM | MENU SCRIPT BY NS               "
+echo -e "              MAKLUMAT SISTEM               "
 echo "==================================================================="
 echo ""
 sysinfo () {

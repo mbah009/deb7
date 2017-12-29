@@ -6,14 +6,12 @@
 cd
 clear
 echo "==================================================================="
-echo -e "              RESTART SERVICE | MENU SCRIPT BY NS               "
+echo -e "              RESTART SERVICE               "
 echo "==================================================================="
 echo ""
 service dropbear restart
 service squid3 restart
 service openvpn restart
 service ssh restart
-echo "==================================================================="
-echo -e "                         SCRIPT BY NS | NS-SSH                  "
 echo "==================================================================="
 echo ""

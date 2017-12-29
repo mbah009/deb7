@@ -1,12 +1,12 @@
 #
 #!/bin/bash
 #Script delete akaunSSH
-#Script by syahz86
+#
 #
 cd
 clear
 echo "==================================================================="
-echo -e "           PADAM AKAUN PELANGGAN | MENU SCRIPT BY NS            "
+echo -e "           PADAM AKAUN PELANGGAN          "
 echo "==================================================================="
 echo -e ""
 # begin of user-list
@@ -45,8 +45,6 @@ if [ $? -eq 0 ]; then
 else
 	echo "Username [$username] belum didaftarkan lagi!"
   echo -e ""
-echo "==================================================================="
-echo -e "                         SCRIPT BY NS | NS-SSH                  "
 echo "==================================================================="
 echo -e ""
 

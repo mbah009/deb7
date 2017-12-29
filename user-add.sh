@@ -1,7 +1,7 @@
 #
 #!/bin/bash
 #Script menambah user ssh
-#Script by syahz86
+#
 #
 export DEBIAN_FRONTEND=noninteractive
 OS=`uname -m`;
@@ -10,7 +10,7 @@ MYIP2="s/xxxxxxxxx/$MYIP/g";
 cd
 clear
 echo "==================================================================="
-echo -e "            DAFTAR PELANGGAN | MENU SCRIPT BY NS                "
+echo -e "            DAFTAR PELANGGAN                "
 echo "==================================================================="
 echo -e ""
 read -p "Username : " username
@@ -38,8 +38,6 @@ else
 	echo "Password: $password"
 	echo "Aktif sehingga: $(date -d "$AKTIF days" +"%d-%m-%Y")"
   echo -e ""
-  echo "==================================================================="
-  echo -e "                         SCRIPT BY NS | NS-SSH                  "
   echo "==================================================================="
   echo -e ""
 fi

@@ -1,12 +1,12 @@
 #
 #!/bin/bash
 #Script senarai user
-#Script by syahz86
+#
 #
 cd
 clear
 echo "==================================================================="
-echo -e "             SENARAI PELANGGAN | MENU SCRIPT BY NS              "
+echo -e "             SENARAI PELANGGAN          "
 echo "==================================================================="
 echo ""
 echo "-------------------------------------------------------------------"
@@ -24,8 +24,6 @@ done < /etc/passwd
 JUMLAH="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
 echo "-------------------------------------------------------------------"
 echo "Jumlah akaun: $JUMLAH user"
-echo "==================================================================="
-echo -e "                         SCRIPT BY NS | NS-SSH                  "
 echo "==================================================================="
 echo ""
 
