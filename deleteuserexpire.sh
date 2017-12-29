@@ -1,6 +1,6 @@
 #!/bin/bash
 tanggal=$(date +"%m-%d-%Y")
 waktu=$(date +"%T")
-echo "Server telah berhasil direboot pada tanggal $tanggal pukul $waktu." >> /root/deleteuserexpire.txt
+echo "Remove user expire pada $tanggal pukul $waktu." >> /root/deleteuserexpire.txt
 cd /usr/bin/
-./deleteuserexpire.sh
+./delete-user-expire.sh
