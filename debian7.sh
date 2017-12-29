@@ -1,6 +1,6 @@
 #!/bin/bash
 # ====================================
-# Mod by syahz86 | GollumVPN
+# 
 # ====================================
 
 # initialisasi var
@@ -27,7 +27,7 @@ sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 service ssh restart
 
 # set repo
-wget -O /etc/apt/sources.list "https://raw.githubusercontent.com/syahz86/autoscript/master/sources.list.debian7"
+wget -O /etc/apt/sources.list "https://raw.githubusercontent.com/mbah009/deb7/master/sources.list.debian7"
 wget "http://www.dotdeb.org/dotdeb.gpg"
 wget "http://www.webmin.com/jcameron-key.asc"
 cat dotdeb.gpg | apt-key add -;rm dotdeb.gpg
@@ -46,7 +46,7 @@ apt-get update
 apt-get -y install nginx
 
 # install essential package
-apt-get -y install bmon iftop htop nmap axel nano iptables traceroute sysv-rc-conf dnsutils bc nethogs openvpn vnstat less screen psmisc apt-file whois ptunnel ngrep mtr git zsh mrtg snmp snmpd snmp-mibs-downloader unzip unrar rsyslog debsums rkhunter
+apt-get -y install bmon iftop htop nmap axel nano iptables traceroute sysv-rc-conf dnsutils bc nethogs cron stunnel4 openvpn vnstat less screen psmisc apt-file whois ptunnel ngrep mtr git zsh mrtg snmp snmpd snmp-mibs-downloader unzip unrar rsyslog debsums rkhunter
 apt-get -y install build-essential
 
 # disable exim
@@ -81,45 +81,45 @@ echo 'echo -e ""' >> .bashrc
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/syahz86/autoscript/master/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/mbah009/deb7/master/nginx.conf"
 mkdir -p /home/vps/public_html
-echo "<pre>Setup by syahz86 | Tester Hacker</pre>" > /home/vps/public_html/index.html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/syahz86/autoscript/master/vps.conf"
+echo "<pre>Setup by NS-SSH | NS-SSH-VPN</pre>" > /home/vps/public_html/index.html
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/mbah009/deb7/master/vps.conf"
 service nginx restart
 
 # install openvpn
-wget -O /etc/openvpn/openvpn.tar "https://raw.githubusercontent.com/syahz86/autoscript/master/openvpn-debian.tar"
+wget -O /etc/openvpn/openvpn.tar "https://raw.githubusercontent.com/mbah009/deb7/master/openvpn-debian.tar"
 cd /etc/openvpn/
 tar xf openvpn.tar
-wget -O /etc/openvpn/1194.conf "https://raw.githubusercontent.com/syahz86/autoscript/master/1194.conf"
+wget -O /etc/openvpn/1194.conf "https://raw.githubusercontent.com/mbah009/deb7/master/1194.conf"
 service openvpn restart
 sysctl -w net.ipv4.ip_forward=1
 sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
 iptables -t nat -I POSTROUTING -s 192.168.100.0/24 -o eth0 -j MASQUERADE
 iptables-save > /etc/iptables_yg_baru_dibikin.conf
-wget -O /etc/network/if-up.d/iptables "https://raw.githubusercontent.com/syahz86/autoscript/master/iptables"
+wget -O /etc/network/if-up.d/iptables "https://raw.githubusercontent.com/mbah009/deb7/master/iptables"
 chmod +x /etc/network/if-up.d/iptables
 service openvpn restart
 
 #konfigurasi openvpn
 cd /etc/openvpn/
-wget -O /etc/openvpn/client.ovpn "https://raw.githubusercontent.com/syahz86/autoscript/master/client-1194.conf"
+wget -O /etc/openvpn/client.ovpn "https://raw.githubusercontent.com/mbah009/deb7/master/client-1194.conf"
 sed -i $MYIP2 /etc/openvpn/client.ovpn;
 cp client.ovpn /home/vps/public_html/
 
 cd
 # install badvpn
-wget -O /usr/bin/badvpn-udpgw "https://github.com/syahz86/autoscript/raw/master/badvpn-udpgw"
+wget -O /usr/bin/badvpn-udpgw "https://github.com/mbah009/deb7/raw/master/badvpn-udpgw"
 if [ "$OS" == "x86_64" ]; then
-  wget -O /usr/bin/badvpn-udpgw "https://github.com/syahz86/autoscript/raw/master/badvpn-udpgw64"
+  wget -O /usr/bin/badvpn-udpgw "https://github.com/mbah009/deb7/raw/master/badvpn-udpgw64"
 fi
 sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300' /etc/rc.local
 chmod +x /usr/bin/badvpn-udpgw
 screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300
 
 # install mrtg
-wget -O /etc/snmp/snmpd.conf "https://raw.githubusercontent.com/syahz86/autoscript/master/snmpd.conf"
-wget -O /root/mrtg-mem.sh "https://github.com/syahz86/autoscript/raw/master/mrtg-mem.sh"
+wget -O /etc/snmp/snmpd.conf "https://raw.githubusercontent.com/mbah009/deb7/master/snmpd.conf"
+wget -O /root/mrtg-mem.sh "https://github.com/mbah009/deb7/raw/master/mrtg-mem.sh"
 chmod +x /root/mrtg-mem.sh
 cd /etc/snmp/
 sed -i 's/TRAPDRUN=no/TRAPDRUN=yes/g' /etc/default/snmpd
@@ -127,19 +127,25 @@ service snmpd restart
 snmpwalk -v 1 -c public localhost 1.3.6.1.4.1.2021.10.1.3.1
 mkdir -p /home/vps/public_html/mrtg
 cfgmaker --zero-speed 100000000 --global 'WorkDir: /home/vps/public_html/mrtg' --output /etc/mrtg.cfg public@localhost
-curl "https://raw.githubusercontent.com/syahz86/autoscript/master/mrtg.conf" >> /etc/mrtg.cfg
+curl "https://raw.githubusercontent.com/mbah009/deb7/master/mrtg.conf" >> /etc/mrtg.cfg
 sed -i 's/WorkDir: \/var\/www\/mrtg/# WorkDir: \/var\/www\/mrtg/g' /etc/mrtg.cfg
 sed -i 's/# Options\[_\]: growright, bits/Options\[_\]: growright/g' /etc/mrtg.cfg
 indexmaker --output=/home/vps/public_html/mrtg/index.html /etc/mrtg.cfg
 if [ -x /usr/bin/mrtg ] && [ -r /etc/mrtg.cfg ]; then mkdir -p /var/log/mrtg ; env LANG=C /usr/bin/mrtg /etc/mrtg.cfg 2>&1 | tee -a /var/log/mrtg/mrtg.log ; fi
 if [ -x /usr/bin/mrtg ] && [ -r /etc/mrtg.cfg ]; then mkdir -p /var/log/mrtg ; env LANG=C /usr/bin/mrtg /etc/mrtg.cfg 2>&1 | tee -a /var/log/mrtg/mrtg.log ; fi
 if [ -x /usr/bin/mrtg ] && [ -r /etc/mrtg.cfg ]; then mkdir -p /var/log/mrtg ; env LANG=C /usr/bin/mrtg /etc/mrtg.cfg 2>&1 | tee -a /var/log/mrtg/mrtg.log ; fi
-cd
 
-# install dropbear
+# banner ssh
+cd /etc/
+wget https://github.com/mbah009/deb7/raw/master/banner-ssh
+echo "Banner /etc/banner-ssh" >> /etc/ssh/sshd_config
+
+# install dropbear banner
+cd
 apt-get -y install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
+sed -i 's/DROPBEAR_BANNER=/DROPBEAR_BANNER="/etc/banner-ssh"/g' /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 service ssh restart
@@ -147,7 +153,7 @@ service dropbear restart
 
 # upgrade dropbear 2017
 apt-get install zlib1g-dev
-wget https://github.com/syahz86/autoscript/raw/master/dropbear-2017.75.tar.bz2
+wget https://github.com/mbah009/deb7/raw/master/dropbear-2017.75.tar.bz2
 bzip2 -cd dropbear-2017.75.tar.bz2  | tar xvf -
 cd dropbear-2017.75
 ./configure
@@ -199,52 +205,62 @@ echo '.....done'
 echo; echo 'Installation has completed.'
 echo 'Config file is at /usr/local/ddos/ddos.conf'
 echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
-
 cd
+
+# install stunnel
+https://raw.githubusercontent.com/mbah009/deb7/master/stunnel.conf
+openssl genrsa -out key.pem 2048
+openssl req -new -x509 -key key.pem -out cert.pem -days 1095
+cat key.pem cert.pem >> /etc/stunnel/stunnel.pem
+sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
+
 # install squid3
 apt-get -y install squid3
-wget -O /etc/squid3/squid.conf "https://raw.githubusercontent.com/syahz86/autoscript/master/squid3.conf"
+wget -O /etc/squid3/squid.conf "https://raw.githubusercontent.com/mbah009/deb7/master/squid3.conf"
 sed -i $MYIP2 /etc/squid3/squid.conf;
 service squid3 restart
 
 # install webmin
-cd
 wget -O webmin-current.deb "http://www.webmin.com/download/deb/webmin-current.deb"
 dpkg -i --force-all webmin-current.deb;
 apt-get -y -f install;
 rm /root/webmin-current.deb
-service webmin restart
+
+# auto restart server 12.01 am
+wget -O reboot.sh "https://raw.githubusercontent.com/mbah009/deb7/master/reboot.sh"
+chmod +x /root/reboot.sh
+echo "0 0 * * * root /root/reboot.sh" > /etc/cron.d/reboot
 
 # download script
 cd /usr/bin
-wget -O menu "https://raw.githubusercontent.com/syahz86/autoscript/master/menu.sh"
-wget -O 1 "https://raw.githubusercontent.com/syahz86/autoscript/master/user-add.sh"
-wget -O 2 "https://raw.githubusercontent.com/syahz86/autoscript/master/trial.sh"
-wget -O 3 "https://raw.githubusercontent.com/syahz86/autoscript/master/user-gen.sh"
-wget -O 4 "https://raw.githubusercontent.com/syahz86/autoscript/master/user-list.sh"
-wget -O 5 "https://raw.githubusercontent.com/syahz86/autoscript/master/user-pass.sh"
-wget -O 6 "https://raw.githubusercontent.com/syahz86/autoscript/master/user-renew.sh"
-wget -O 7 "https://raw.githubusercontent.com/syahz86/autoscript/master/user-del.sh"
-wget -O 8 "https://raw.githubusercontent.com/syahz86/autoscript/master/userexpired.sh"
-wget -O 9 "https://raw.githubusercontent.com/syahz86/autoscript/master/user-expire-list.sh"
-wget -O 10 "https://raw.githubusercontent.com/syahz86/autoscript/master/delete-user-expire.sh"
-wget -O 11 "https://raw.githubusercontent.com/syahz86/autoscript/master/user-banned.sh"
-wget -O 12 "https://raw.githubusercontent.com/syahz86/autoscript/master/user-unbanned.sh"
-wget -O 13 "https://raw.githubusercontent.com/syahz86/autoscript/master/user-login.sh"
-wget -O 14 "https://raw.githubusercontent.com/syahz86/autoscript/master/userlimit.sh"
-wget -O 15 "https://raw.githubusercontent.com/syahz86/autoscript/master/ps_mem.py"
-wget -O 16 "https://raw.githubusercontent.com/syahz86/autoscript/master/resvis.sh"
-wget -O 17 "https://raw.githubusercontent.com/syahz86/autoscript/master/speedtest_cli.py"
-wget -O 18 "https://raw.githubusercontent.com/syahz86/autoscript/master/benchmark.sh"
-wget -O 19 "https://raw.githubusercontent.com/syahz86/autoscript/master/info.sh"
-wget -O 20 "https://raw.githubusercontent.com/syahz86/autoscript/master/about.sh"
-wget -O 21 "https://raw.githubusercontent.com/syahz86/autoscript/master/rebootserver.sh"
-wget -O autokill.sh "https://raw.githubusercontent.com/syahz86/autoscript/master/autokill.sh"
-wget -O userlimit.sh "https://raw.githubusercontent.com/syahz86/autoscript/master/userlimit.sh"
-wget -O userexpired.sh "https://raw.githubusercontent.com/syahz86/autoscript/master/userexpired.sh"
-wget -O reboot.sh "https://raw.githubusercontent.com/syahz86/autoscript/master/reboot.sh"
-echo "0 0 * * * root /usr/sbin/reboot.sh" > /etc/cron.d/reboot
-echo "0 */12 * * * root /usr/bin/userexpired.sh" > /etc/cron.d/userexpired.sh
+wget -O menu "https://raw.githubusercontent.com/mbah009/deb7/master/menu.sh"
+wget -O 1 "https://raw.githubusercontent.com/mbah009/deb7/master/user-add.sh"
+wget -O 2 "https://raw.githubusercontent.com/mbah009/deb7/master/trial.sh"
+wget -O 3 "https://raw.githubusercontent.com/mbah009/deb7/master/user-gen.sh"
+wget -O 4 "https://raw.githubusercontent.com/mbah009/deb7/master/user-list.sh"
+wget -O 5 "https://raw.githubusercontent.com/mbah009/deb7/master/user-pass.sh"
+wget -O 6 "https://raw.githubusercontent.com/mbah009/deb7/master/user-renew.sh"
+wget -O 7 "https://raw.githubusercontent.com/mbah009/deb7/master/user-del.sh"
+wget -O 8 "https://raw.githubusercontent.com/mbah009/deb7/master/userexpired.sh"
+wget -O 9 "https://raw.githubusercontent.com/mbah009/deb7/master/user-expire-list.sh"
+wget -O 10 "https://raw.githubusercontent.com/mbah009/deb7/master/delete-user-expire.sh"
+wget -O 11 "https://raw.githubusercontent.com/mbah009/deb7/master/user-banned.sh"
+wget -O 12 "https://raw.githubusercontent.com/mbah009/deb7/master/user-unbanned.sh"
+wget -O 13 "https://raw.githubusercontent.com/mbah009/deb7/master/user-login.sh"
+wget -O 14 "https://raw.githubusercontent.com/mbah009/deb7/master/userlimit.sh"
+wget -O 15 "https://raw.githubusercontent.com/mbah009/deb7/master/ssh-1.sh"
+wget -O 16 "https://raw.githubusercontent.com/mbah009/deb7/master/ssh-2.sh"
+wget -O 17 "https://raw.githubusercontent.com/mbah009/deb7/master/ps_mem.py"
+wget -O 18 "https://raw.githubusercontent.com/mbah009/deb7/master/resvis.sh"
+wget -O 19 "https://raw.githubusercontent.com/mbah009/deb7/master/speedtest_cli.py"
+wget -O 20 "https://raw.githubusercontent.com/mbah009/deb7/master/benchmark.sh"
+wget -O 21 "https://raw.githubusercontent.com/mbah009/deb7/master/info.sh"
+wget -O 22 "https://raw.githubusercontent.com/mbah009/deb7/master/about.sh"
+wget -O 23 "https://raw.githubusercontent.com/mbah009/deb7/master/rebootserver.sh"
+wget -O autokill.sh "https://raw.githubusercontent.com/mbah009/deb7/master/autokill.sh"
+wget -O userlimit.sh "https://raw.githubusercontent.com/mbah009/deb7/master/userlimit.sh"
+wget -O userexpired.sh "https://raw.githubusercontent.com/mbah009/deb7/master/userexpired.sh"
+echo "0 */12 * * * root /usr/bin/userexpired.sh" > /etc/cron.d/userexpired
 screen -AmdS check /usr/bin/autokill.sh
 sed -i '$ i\screen -AmdS check /usr/bin/autokill.sh' /etc/rc.local
 sed -i '$ i\touch /var/lock/subsys/local' /etc/rc.local
@@ -270,10 +286,13 @@ chmod +x 17
 chmod +x 18
 chmod +x 19
 chmod +x 20
+chmod +x 21
+chmod +x 22
+chmod +x 23
 chmod +x autokill.sh
 chmod +x userlimit.sh
 chmod +x userexpired.sh
-chmod +x reboot.sh
+cd
 
 #bonus block playstation
 iptables -A OUTPUT -d account.sonyentertainmentnetwork.com -j DROP
@@ -307,7 +326,6 @@ iptables -A OUTPUT -p tcp --dport 25 -j REJECT
 iptables-save
 
 # finalisasi
-cd
 chown -R www-data:www-data /home/vps/public_html
 service nginx start
 service php-fpm start
@@ -320,6 +338,7 @@ service fail2ban restart
 service squid3 restart
 service webmin restart
 service cron restart
+/etc/init.d/stunnel4 restart
 rm -rf ~/.bash_history && history -c
 echo "unset HISTFILE" >> /etc/profile
 rm -f /root/debian7.sh
