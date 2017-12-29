@@ -257,10 +257,8 @@ wget -O 20 "https://raw.githubusercontent.com/mbah009/deb7/master/benchmark.sh"
 wget -O 21 "https://raw.githubusercontent.com/mbah009/deb7/master/info.sh"
 wget -O 22 "https://raw.githubusercontent.com/mbah009/deb7/master/about.sh"
 wget -O 23 "https://raw.githubusercontent.com/mbah009/deb7/master/rebootserver.sh"
-wget -O autokill.sh "https://raw.githubusercontent.com/mbah009/deb7/master/autokill.sh"
-wget -O userlimit.sh "https://raw.githubusercontent.com/mbah009/deb7/master/userlimit.sh"
-wget -O userexpired.sh "https://raw.githubusercontent.com/mbah009/deb7/master/userexpired.sh"
-echo "0 */12 * * * root /usr/bin/userexpired.sh" > /etc/cron.d/userexpired
+wget "https://raw.githubusercontent.com/mbah009/deb7/master/autokill.sh"
+wget "https://raw.githubusercontent.com/mbah009/deb7/master/userlimit.sh"
 screen -AmdS check /usr/bin/autokill.sh
 sed -i '$ i\screen -AmdS check /usr/bin/autokill.sh' /etc/rc.local
 sed -i '$ i\touch /var/lock/subsys/local' /etc/rc.local
@@ -291,7 +289,6 @@ chmod +x 22
 chmod +x 23
 chmod +x autokill.sh
 chmod +x userlimit.sh
-chmod +x userexpired.sh
 cd
 
 #bonus block playstation
