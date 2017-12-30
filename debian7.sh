@@ -65,15 +65,15 @@ apt-get install figlet
 echo "clear" >> .bashrc
 echo 'echo -e ""' >> .bashr
 echo 'echo -e ""' >> .bashrc
-echo 'figlet -k "            NS"' >> .bashrc
+echo 'figlet -k "NS-SSH"' >> .bashrc
 echo 'echo -e ""' >> .bashrc
 echo 'echo -e "     ========================================================="' >> .bashrc
-echo 'echo -e "     *                 Script By NS | NS-SSH                  *"' >> .bashrc
+echo 'echo -e "     *                 Script By NS | NS-SSH                 *"' >> .bashrc
 echo 'echo -e "     ========================================================="' >> .bashrc
 echo 'echo -e "     *                     Contact Me                        *"' >> .bashrc
 echo 'echo -e "     *                 Telegram: @root_security              *"' >> .bashrc
 echo 'echo -e "     ========================================================="' >> .bashrc
-echo 'echo -e "     *Taip \033[1;32mmenu\033[0m untuk menampilkan senarai menu*"' >> .bashrc
+echo 'echo -e "     *          Taip \033[1;32mmenu\033[0m untuk menampilkan senarai menu          *"' >> .bashrc
 echo 'echo -e "     ========================================================="' >> .bashrc
 echo 'echo -e ""' >> .bashrc
 
@@ -136,16 +136,16 @@ if [ -x /usr/bin/mrtg ] && [ -r /etc/mrtg.cfg ]; then mkdir -p /var/log/mrtg ; e
 if [ -x /usr/bin/mrtg ] && [ -r /etc/mrtg.cfg ]; then mkdir -p /var/log/mrtg ; env LANG=C /usr/bin/mrtg /etc/mrtg.cfg 2>&1 | tee -a /var/log/mrtg/mrtg.log ; fi
 
 # banner ssh
-cd /etc/
+cd
 wget https://github.com/mbah009/deb7/raw/master/banner-ssh
 echo "Banner /etc/banner-ssh" >> /etc/ssh/sshd_config
 
-# install dropbear banner
+# install dropbear / banner
 cd
 apt-get -y install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_BANNER=/DROPBEAR_BANNER="/etc/banner-ssh"/g' /etc/default/dropbear
+sed -i 's/DROPBEAR_BANNER=""/DROPBEAR_BANNER="banner-ssh"/g' /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 service ssh restart
@@ -248,17 +248,19 @@ wget -O 11 "https://raw.githubusercontent.com/mbah009/deb7/master/user-banned.sh
 wget -O 12 "https://raw.githubusercontent.com/mbah009/deb7/master/user-unbanned.sh"
 wget -O 13 "https://raw.githubusercontent.com/mbah009/deb7/master/user-login.sh"
 wget -O 14 "https://raw.githubusercontent.com/mbah009/deb7/master/userlimit.sh"
-wget -O 15 "https://raw.githubusercontent.com/mbah009/deb7/master/ssh-1.sh"
-wget -O 16 "https://raw.githubusercontent.com/mbah009/deb7/master/ssh-2.sh"
-wget -O 17 "https://raw.githubusercontent.com/mbah009/deb7/master/ps_mem.py"
-wget -O 18 "https://raw.githubusercontent.com/mbah009/deb7/master/resvis.sh"
-wget -O 19 "https://raw.githubusercontent.com/mbah009/deb7/master/speedtest_cli.py"
-wget -O 20 "https://raw.githubusercontent.com/mbah009/deb7/master/benchmark.sh"
-wget -O 21 "https://raw.githubusercontent.com/mbah009/deb7/master/info.sh"
-wget -O 22 "https://raw.githubusercontent.com/mbah009/deb7/master/about.sh"
-wget -O 23 "https://raw.githubusercontent.com/mbah009/deb7/master/rebootserver.sh"
+wget -O 15 "https://raw.githubusercontent.com/mbah009/deb7/master/userlimitssh.sh"
+wget -O 16 "https://raw.githubusercontent.com/mbah009/deb7/master/ssh-1.sh"
+wget -O 17 "https://raw.githubusercontent.com/mbah009/deb7/master/ssh-2.sh"
+wget -O 18 "https://raw.githubusercontent.com/mbah009/deb7/master/ps_mem.py"
+wget -O 19 "https://raw.githubusercontent.com/mbah009/deb7/master/resvis.sh"
+wget -O 20 "https://raw.githubusercontent.com/mbah009/deb7/master/speedtest_cli.py"
+wget -O 22 "https://raw.githubusercontent.com/mbah009/deb7/master/benchmark.sh"
+wget -O 22 "https://raw.githubusercontent.com/mbah009/deb7/master/info.sh"
+wget -O 23 "https://raw.githubusercontent.com/mbah009/deb7/master/about.sh"
+wget -O 24 "https://raw.githubusercontent.com/mbah009/deb7/master/rebootserver.sh"
 wget "https://raw.githubusercontent.com/mbah009/deb7/master/autokill.sh"
 wget "https://raw.githubusercontent.com/mbah009/deb7/master/userlimit.sh"
+wget "https://raw.githubusercontent.com/mbah009/deb7/master/userlimitssh.sh"
 screen -AmdS check /usr/bin/autokill.sh
 sed -i '$ i\screen -AmdS check /usr/bin/autokill.sh' /etc/rc.local
 sed -i '$ i\touch /var/lock/subsys/local' /etc/rc.local
@@ -287,8 +289,10 @@ chmod +x 20
 chmod +x 21
 chmod +x 22
 chmod +x 23
+chmod +x 24
 chmod +x autokill.sh
 chmod +x userlimit.sh
+chmod +x userlimitssh.sh
 cd
 
 #bonus block playstation
