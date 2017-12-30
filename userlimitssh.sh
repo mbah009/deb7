@@ -77,8 +77,8 @@ rm -f /tmp/user2
 exit 0
 ;;
 *)
-    echo " Taip \033[1;32muserlimit.sh 1\033[0m untuk melimitkan 1 login dropbear untuk 1 ID sahaja."
-	echo " Taip \033[1;32muserlimit.sh 2\033[0m untuk melimitkan 2 login dropbear untuk 1 ID sahaja." 
+    echo " Taip userlimit.sh 1 untuk melimitkan 1 login SSH untuk 1 ID sahaja."
+	echo " Taip userlimit.sh 2 untuk melimitkan 2 login SSH untuk 1 ID sahaja." 
 echo "==================================================================="
 echo ""	
 rm -f /tmp/pid
