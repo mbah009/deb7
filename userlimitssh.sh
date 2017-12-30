@@ -77,8 +77,8 @@ rm -f /tmp/user2
 exit 0
 ;;
 *)
-    echo " Taip userlimit.sh 1 untuk melimitkan 1 login SSH untuk 1 ID sahaja."
-	echo " Taip userlimit.sh 2 untuk melimitkan 2 login SSH untuk 1 ID sahaja." 
+echo " Taip userlimitssh.sh 1 untuk melimitkan 1 login SSH untuk 1 ID sahaja."
+echo " Taip userlimitssh.sh 2 untuk melimitkan 2 login SSH untuk 1 ID sahaja." 
 echo "==================================================================="
 echo ""	
 rm -f /tmp/pid
