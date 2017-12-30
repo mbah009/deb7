@@ -79,6 +79,7 @@ exit 0
 *)
 echo "Taip userlimitssh.sh 1 untuk melimitkan 1 login SSH untuk 1 ID sahaja."
 echo "Taip userlimitssh.sh 2 untuk melimitkan 2 login SSH untuk 1 ID sahaja." 
+echo ""
 echo "==================================================================="
 echo ""	
 rm -f /tmp/pid
