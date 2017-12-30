@@ -27,7 +27,7 @@ echo -e "\033[1;31m18\033[0m) Jumlah RAM yang sedang digunakan     | \033[1;32mT
 echo -e "\033[1;31m19\033[0m) Restart semua servis                 | \033[1;32mRestart all service\033[0m"
 echo -e "\033[1;31m20\033[0m) Speedtest VPS                        | \033[1;32mSpeedtest --share\033[0m"
 echo -e "\033[1;31m21\033[0m) Benchmark                            | \033[1;32mBenchmark\033[0m"
-echo -e "\033[1;31m21\033[0m) Maklumat Sistem VPS                  | \033[1;32mVPS system info\033[0m"
+echo -e "\033[1;31m22\033[0m) Maklumat Sistem VPS                  | \033[1;32mVPS system info\033[0m"
 echo -e "\033[1;31m23\033[0m) Info script auto install             | \033[1;32mAuto install script info\033[0m"
 echo -e "\033[1;31m24\033[0m) Reboot server                        | \033[1;32mReboot server\033[0m"
 echo "==================================================================="
