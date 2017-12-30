@@ -80,8 +80,8 @@ case $PARAM in
 	exit 0
 ;;
 *)
-	echo " Taip userlimit.sh 1 untuk melimitkan 1 login dropbear untuk 1 ID sahaja."
-	echo " Taip userlimit.sh 2 untuk melimitkan 2 login dropbear untuk 1 ID sahaja."
+echo "Taip userlimit.sh 1 untuk melimitkan 1 login dropbear untuk 1 ID sahaja."
+echo "Taip userlimit.sh 2 untuk melimitkan 2 login dropbear untuk 1 ID sahaja."
 echo "==================================================================="
 echo ""
 	rm -f /tmp/pid
