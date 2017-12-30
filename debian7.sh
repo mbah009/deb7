@@ -208,7 +208,7 @@ echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
 cd
 
 # install stunnel
-https://raw.githubusercontent.com/mbah009/deb7/master/stunnel.conf
+wget -O /etc/stunnel/stunnel.conf "https://raw.githubusercontent.com/mbah009/deb7/master/stunnel.conf"
 openssl genrsa -out key.pem 2048
 openssl req -new -x509 -key key.pem -out cert.pem -days 1095
 cat key.pem cert.pem >> /etc/stunnel/stunnel.pem
@@ -375,8 +375,7 @@ echo "IPv6     : [off]"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "Maklumat Tambahan"  | tee -a log-install.txt
 echo "-----------------"  | tee -a log-install.txt
-echo "1) VPS AUTO REBOOT JAM 12 TENGAH MALAM"  | tee -a log-install.txt
-echo "2) AUTO LOCK USER EXPIRED SETIAP 12 JAM"  | tee -a log-install.txt
+echo "VPS AUTO REBOOT JAM 12 TENGAH MALAM"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "Original Script by NS | NS-SSH"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
