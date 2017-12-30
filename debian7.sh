@@ -73,7 +73,7 @@ echo 'echo -e "     ========================================================="' 
 echo 'echo -e "     *                     Contact Me                        *"' >> .bashrc
 echo 'echo -e "     *                 Telegram: @root_security              *"' >> .bashrc
 echo 'echo -e "     ========================================================="' >> .bashrc
-echo 'echo -e "     *          Taip \033[1;32mmenu\033[0m untuk menampilkan senarai menu          *"' >> .bashrc
+echo 'echo -e "     *        Taip \033[1;32mmenu\033[0m untuk menampilkan senarai menu       *"' >> .bashrc
 echo 'echo -e "     ========================================================="' >> .bashrc
 echo 'echo -e ""' >> .bashrc
 
