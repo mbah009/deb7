@@ -115,15 +115,14 @@ screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300
 
 # banner ssh
 cd
-wget https://github.com/mbah009/deb7/raw/master/banner-ssh
-echo "Banner /etc/banner-ssh" >> /etc/ssh/sshd_config
+wget https://github.com/mbah009/deb7/raw/master/banner
+echo "Banner /etc/banner" >> /etc/ssh/sshd_config
 
-# install dropbear / banner
+# install dropbear
 cd
 apt-get -y install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_BANNER=""/DROPBEAR_BANNER="banner-ssh"/g' /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 
@@ -180,8 +179,7 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 # install squid3
 apt-get -y install squid3
 wget -O /etc/squid3/squid.conf "https://raw.githubusercontent.com/mbah009/deb7/master/squid3.conf"
-sed -i $MYIP2 /etc/squid3/squid.conf;
-service squid3 restart
+sed -i $MYIP2 /etc/squid3/squid.conf
 
 # install webmin
 wget -O webmin-current.deb "http://www.webmin.com/download/deb/webmin-current.deb"
