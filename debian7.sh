@@ -136,20 +136,17 @@ if [ -x /usr/bin/mrtg ] && [ -r /etc/mrtg.cfg ]; then mkdir -p /var/log/mrtg ; e
 if [ -x /usr/bin/mrtg ] && [ -r /etc/mrtg.cfg ]; then mkdir -p /var/log/mrtg ; env LANG=C /usr/bin/mrtg /etc/mrtg.cfg 2>&1 | tee -a /var/log/mrtg/mrtg.log ; fi
 
 # banner ssh
-cd
-wget https://github.com/mbah009/deb7/raw/master/banner-ssh
-echo "Banner /etc/banner-ssh" >> /etc/ssh/sshd_config
+cd /etc/
+wget https://github.com/mbah009/deb7/raw/master/banner
+echo "Banner /etc/banner" >> /etc/ssh/sshd_config
 
-# install dropbear / banner
+# install dropbear
 cd
 apt-get -y install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_BANNER=""/DROPBEAR_BANNER="banner-ssh"/g' /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
-service ssh restart
-service dropbear restart
 
 # upgrade dropbear 2017
 apt-get -y install zlib1g-dev
@@ -160,7 +157,6 @@ cd dropbear-2017.75
 make && make install
 mv /usr/sbin/dropbear /usr/sbin/dropbear1
 ln /usr/local/sbin/dropbear /usr/sbin/dropbear
-service dropbear restart
 
 # install vnstat gui
 cd /home/vps/public_html/
