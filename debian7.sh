@@ -352,7 +352,7 @@ echo "===========================================" | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "Servis"  | tee -a log-install.txt
 echo "------"  | tee -a log-install.txt
-echo "OpenVPN  : TCP 1194 (client config : http://$MYIP:81/client.ovpn)"  | tee -a log-install.txt
+echo "OpenVPN  : TCP 1194 (client config : http://$MYIP/client.ovpn)"  | tee -a log-install.txt
 echo "SSL SSH  : 442"  | tee -a log-install.txt
 echo "SSL Dropbear : 443"  | tee -a log-install.txt
 echo "Squid3   : 8080 (limit to IP SSH)"  | tee -a log-install.txt
