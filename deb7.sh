@@ -120,6 +120,15 @@ echo "Banner /etc/banner-ssh" >> /etc/ssh/sshd_config
 
 # install dropbear / banner
 cd
+apt-get install zlib1g-dev
+wget https://github.com/mbah009/deb7/raw/master/dropbear-2017.75.tar.bz2
+bzip2 -cd dropbear-2017.75.tar.bz2  | tar xvf -
+cd dropbear-2017.75
+./configure
+make && make install
+mv /usr/sbin/dropbear /usr/sbin/dropbear1
+ln /usr/local/sbin/dropbear /usr/sbin/dropbear
+cd
 apt-get -y install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
