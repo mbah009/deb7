@@ -51,7 +51,7 @@ if [ $? -eq 0 ]; then
 	echo "SSL Dropbear Port: 443"
 	echo "SSL SSH Port: 442"
 	echo "Squid Proxy: 8080"
-	echo "OpenVPN Config: http://$MYIP:81/client.ovpn"
+	echo "OpenVPN Config: http://$MYIP/client.ovpn"
 	echo "Username: $username"
 	#echo "Password: $password"
 	echo "Aktif sehingga: $(date -d "$today + $AKTIF days" +"%d-%m-%Y")"
