@@ -120,7 +120,16 @@ echo "Banner /etc/banner-ssh" >> /etc/ssh/sshd_config
 
 # install dropbear / banner
 cd
-apt-get install zlib1g-dev
+apt-get -y install dropbear
+sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
+sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
+sed -i 's/DROPBEAR_BANNER=""/DROPBEAR_BANNER="banner-ssh"/g' /etc/default/dropbear
+echo "/bin/false" >> /etc/shells
+echo "/usr/sbin/nologin" >> /etc/shells
+
+# upgrade dropbear 2017.75
+cd
+apt-get -y install zlib1g-dev
 wget https://matt.ucc.asn.au/dropbear/releases/dropbear-2017.75.tar.bz2
 bzip2 -cd dropbear-2017.75.tar.bz2  | tar xvf -
 cd dropbear-2017.75
@@ -128,15 +137,6 @@ cd dropbear-2017.75
 make && make install
 mv /usr/sbin/dropbear /usr/sbin/dropbear1
 ln /usr/local/sbin/dropbear /usr/sbin/dropbear
-cd
-apt-get -y install dropbear
-sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_BANNER=""/DROPBEAR_BANNER="banner-ssh"/g' /etc/default/dropbear
-echo "/bin/false" >> /etc/shells
-echo "/usr/sbin/nologin" >> /etc/shells
-service ssh restart
-service dropbear restart
 
 # install fail2ban
 cd
