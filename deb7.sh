@@ -114,7 +114,7 @@ chmod +x /usr/bin/badvpn-udpgw
 screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300
 
 # banner ssh
-cd
+cd /etc/
 wget https://github.com/mbah009/deb7/raw/master/banner
 echo "Banner /etc/banner" >> /etc/ssh/sshd_config
 
