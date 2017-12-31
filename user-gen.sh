@@ -25,7 +25,7 @@ echo "Host/IP: $MYIP"
 echo "SSL Dropbear Port: 443"
 echo "SSL SSH Port: 442"
 echo "Squid Proxy: 8080"
-echo "OpenVPN Config: http://$MYIP:81/client.ovpn"
+echo "OpenVPN Config: http://$MYIP/client.ovpn"
 for (( i=1; i <= $JUMLAH; i++ ))
 do
 	username=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 15 | head -n 1`;
