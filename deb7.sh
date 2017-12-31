@@ -221,10 +221,13 @@ wget -O 22 "https://raw.githubusercontent.com/mbah009/deb7/master/info.sh"
 wget -O 23 "https://raw.githubusercontent.com/mbah009/deb7/master/about.sh"
 wget -O 24 "https://raw.githubusercontent.com/mbah009/deb7/master/rebootserver.sh"
 wget "https://raw.githubusercontent.com/mbah009/deb7/master/autokill.sh"
+wget "https://raw.githubusercontent.com/mbah009/deb7/master/autokillssh.sh"
 wget "https://raw.githubusercontent.com/mbah009/deb7/master/userlimit.sh"
 wget "https://raw.githubusercontent.com/mbah009/deb7/master/userlimitssh.sh"
 screen -AmdS check /usr/bin/autokill.sh
+screen -AmdS check /usr/bin/autokillssh.sh
 sed -i '$ i\screen -AmdS check /usr/bin/autokill.sh' /etc/rc.local
+sed -i '$ i\screen -AmdS check /usr/bin/autokillssh.sh' /etc/rc.local
 sed -i '$ i\touch /var/lock/subsys/local' /etc/rc.local
 
 chmod +x menu
@@ -253,6 +256,7 @@ chmod +x 22
 chmod +x 23
 chmod +x 24
 chmod +x autokill.sh
+chmod +x autokillssh.sh
 chmod +x userlimit.sh
 chmod +x userlimitssh.sh
 cd
