@@ -307,7 +307,7 @@ service cron restart
 /etc/init.d/stunnel4 restart
 rm -rf ~/.bash_history && history -c
 echo "unset HISTFILE" >> /etc/profile
-rm -f /root/debian7.sh
+rm -f /root/deb7.sh
 
 # info
 clear
