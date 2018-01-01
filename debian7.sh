@@ -61,7 +61,7 @@ vnstat -u -i venet0
 service vnstat restart
 
 #Install Figlet
-apt-get install figlet
+apt-get -y install figlet
 echo "clear" >> .bashrc
 echo 'echo -e ""' >> .bashr
 echo 'echo -e ""' >> .bashrc
