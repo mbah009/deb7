@@ -68,7 +68,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 # install squid3
 cd
 apt-get -y install squid3
-wget -O /etc/squid3/squid.conf "https://www.tmoe.shop/vpsdebian/squid.conf"
+wget -O /etc/squid3/squid.conf "https://www.tmoe.shop/vpsdebian/squid3.conf"
 sed -i $MYIP2 /etc/squid3/squid.conf
 
 # install webmin
