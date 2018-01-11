@@ -415,7 +415,7 @@ echo "unset HISTFILE" >> /etc/profile
 clear
 echo "Setup by NS-SSH"  | tee -a log-install.txt
 echo "OpenVPN  : TCP 1194 (client config : http://$MYIP:81/client.ovpn)"  | tee -a log-install.txt
-echo "SSL  : 443"  | tee -a log-install.txt
+echo "SSL      : 443"  | tee -a log-install.txt
 echo "Dropbear : 3128"  | tee -a log-install.txt
 echo "Squid3   : 80, 8080 (limit to IP SSH)"  | tee -a log-install.txt
 echo "badvpn   : badvpn-udpgw port 7300"  | tee -a log-install.txt
